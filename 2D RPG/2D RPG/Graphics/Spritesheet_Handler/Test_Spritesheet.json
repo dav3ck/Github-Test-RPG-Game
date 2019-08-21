@@ -1,0 +1,20 @@
+{
+  "name": "Test Spritesheet",
+  "discription": "A Spritesheet used for testing",
+  "image": "SpriteSheet_Test",
+
+  "dimensions": {
+    "X": 1,
+    "Y": 1
+  },
+
+  "imageInformation": [
+    [
+      [
+        "Test#1",
+        "A Test Arm Used for testing"
+      ]
+    ]
+  ]
+}
+

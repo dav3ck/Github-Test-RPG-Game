@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "Test1",
+    "Discription": "This is a test Item",
+    "class_items": [
+      {
+        "Name": "Test1_Item1",
+        "Discription": "Test1 Item1",
+        "ID": 0,
+        "spritesheet": "Test Spritesheet"
+      },
+      {
+        "Name": "Test1_Item2",
+        "Discription": "Test1 Item2",
+        "ID": 1,
+        "spritesheet": "Test Spritesheet"
+      }
+    ]
+  },
+  {
+    "Name": "Test2",
+    "Discription": "This is a test Item",
+    "class_items": [
+      {
+        "Name": "Test2_Item1",
+        "Discription": "Test2 Item1",
+        "ID": 0,
+        "spritesheet": "Test Spritesheet"
+      },
+      {
+        "Name": "Test2_Item2",
+        "Discription": "Test2 Item2",
+        "ID": 1,
+        "spritesheet": "Test Spritesheet"
+      }
+    ]
+  }
+]
