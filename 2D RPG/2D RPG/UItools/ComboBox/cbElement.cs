@@ -22,7 +22,6 @@ namespace _2D_RPG.UItools.ComboBox
             this.Text = Text;
             this.Parent = Parent;
             this.Activable = false;
-            this.type = UItypes.cbElement;
             Hitbox = new Rectangle(Location, new Point(Width, Height));
 
         }

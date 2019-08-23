@@ -4,14 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 namespace _2D_RPG.UItools.TextInput
 {
     public class tibInstance : UI_ActiveBox
     {
         private string Infotext;
+        KeyboardState oldkeyboardState;
 
-        public tibInstance(Point location, int width, int height, string text)
+        public tibInstance(Point location, int width, int height, string text, string id)
         {
             this.Location = location;
             this.Width = width;
@@ -19,6 +21,7 @@ namespace _2D_RPG.UItools.TextInput
 
             this.Infotext = text;
             this.Text = Infotext;
+            this.ID = id;
 
             this.Hitbox = new Rectangle(this.Location, new Point(this.Width, this.Height));
         }
@@ -31,7 +34,10 @@ namespace _2D_RPG.UItools.TextInput
             }
 
             this.Active = true;
-            this.Text = "";
+            if (this.Text == this.Infotext)
+            {
+                this.Text = "";
+            }
             UI_ActiveBox.ActiveUIBoxes.Add(this);
         }
 
@@ -48,6 +54,41 @@ namespace _2D_RPG.UItools.TextInput
             //CHECK HERE FOR USER INPUT
             //CURSOR POSITION
             // MAX WORD LIMIT ??
+
+            var currentKeyboardState = Keyboard.GetState();
+            var keys = currentKeyboardState.GetPressedKeys();
+
+            foreach(var key in keys)
+            {
+                if (oldkeyboardState.IsKeyUp(key))
+                {
+                    if (key == Keys.Back && Text.Length > 0)
+                    {
+                        Text = Text.Remove(Text.Length - 1, 1);
+                    }
+                    else if (key == Keys.Space)
+                    {
+                        Text = Text.Insert(Text.Length, " ");
+                    }
+                    else
+                        {
+                        string keyString = key.ToString();
+                        bool isUpperCase = false;
+
+                        if (currentKeyboardState.IsKeyDown(Keys.LeftShift)){
+                            isUpperCase = true;
+                        }
+
+                        if (keyString.Length == 1)
+                        {
+                            Text += isUpperCase ? keyString.ToUpper() : keyString.ToLower();
+                            Console.WriteLine(Text);
+                        }
+                    }
+                }
+            }
+
+            oldkeyboardState = currentKeyboardState;
         } 
     }
 }

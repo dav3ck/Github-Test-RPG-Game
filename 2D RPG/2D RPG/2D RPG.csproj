@@ -64,6 +64,7 @@
     <Compile Include="UItools\ComboBox\cbOpen.cs" />
     <Compile Include="UItools\ComboBox\ComboBox.cs" />
     <Compile Include="UItools\ComboBox\cbInstance.cs" />
+    <Compile Include="UItools\Switch\sbInstance.cs" />
     <Compile Include="UItools\TextInput\tibInstance.cs" />
     <Compile Include="UItools\UI_Box.cs" />
     <Compile Include="UItools\UI_ActiveBox.cs" />
@@ -83,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <Content Include="Manual\User Interface Tools.txt" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

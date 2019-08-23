@@ -1,0 +1,44 @@
+﻿The user interface consists of [3] tools:
+	1. Button
+	2. Combobox
+	3. Text Input
+	(4. Combobox Element)
+	
+General Information:
+
+UI_Box is the abstract base class for any of the 3 UI-Boxes, the purpose of this class is to streamline the design of these tools, everybody consists out of: (A Location,
+A Size (Width/Height), Display text, Hitbox, ID) so all these variables are all mandatory inheritated by any of the UI tools. The UI_Box is also the class that handles all the 
+user input presses on any of the UItools. The UI_Box consists out of 1 abstract function Open, this is a function that every UI tool inheritages, the code here is the code that needs to 
+excecute when the matching box is clicked.
+
+We can split the UItools in 2 different types: Something that is clicked on and an action needs to happen: Button/ ComboBox Element. And the second type: Something when clicked on it needs
+to stay open and something more needs to be done with it: ComboBox/ Text Input. The UI_ActiveBox is inheritated by all the UITools in the latter catagory. This Abstract class has some 
+extra features such as an Abstract: Update / Close class. It also contains a list of the current active UItool instance, this list may only contain 1 item. This Class also contains a 
+static function that only allows one UItool instance to be active at the time.
+
+
+----------------------------------
+
+Button
+
+The Button is the simpelest UItool within the bunch, when its clicked on, a function needs to be used.
+
+When creating a Button these Arguments are needed (? is optional) :
+	-(Point) Location - The Location of where on the screen the button needs to be placed
+	-?(int) Width - The width of the button, Standard : 50
+	-?(int) Height - The Height of the button, Standard : 20
+	-?(string) Text - The Text displayed on the button, Standard : " "
+	-(string) ID - The buttons Identifier
+	-(Func) Action - The delegate function the Button needs to run whenever it is pressed.
+
+When the button is clicked, the Inheritant abstract Open() method is ran, this method executes the delegate function Action().
+
+To link the button to a function or Action, Write in the class inwhich is action needs to be done a method which can handle everything whenever a button is pressed. 
+then Parse this function in the Delegate function parameter.
+
+-----------------------------------
+
+Combobox
+
+this UItool is a dropdown list. In its closed state it is a normal box with the currently selected item displayed in its text. When clicked upon however it opens up an reveals a List 
+of all the other possibly selectable 

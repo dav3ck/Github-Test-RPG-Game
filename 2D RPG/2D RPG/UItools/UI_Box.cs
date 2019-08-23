@@ -10,11 +10,6 @@ using _2D_RPG.UItools.ComboBox;
 
 namespace _2D_RPG.UItools
 {
-    public enum UItypes
-    {
-        Combobox,
-        cbElement
-    }
 
     abstract public class UI_Box
     {
@@ -26,18 +21,14 @@ namespace _2D_RPG.UItools
         public int Width;
         public int Height;
         public string Text;
-        public UItypes type;
         public Rectangle Hitbox;
+
+        public string ID;
 
         public abstract void Open();
 
-
-        public int ID;
-
         public UI_Box()
         {
-            ID = UIboxList.Count();
-
             UIboxList.Add(this);
         }
 

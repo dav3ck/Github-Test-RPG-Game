@@ -11,6 +11,7 @@ using _2D_RPG.UItools.ComboBox;
 using _2D_RPG.UItools;
 using _2D_RPG.UItools.Button;
 using _2D_RPG.UItools.TextInput;
+using _2D_RPG.UItools.Switch;
 
 namespace _2D_RPG
 {
@@ -25,6 +26,7 @@ namespace _2D_RPG
         public static GameContent texture;
         public cbInstance TestComboBox, TestComboBox1;
         public tibInstance TestInputbox;
+        public sbInstance TestSwitchBox;
 
         public btInstance Testbutton;
 
@@ -85,10 +87,12 @@ namespace _2D_RPG
             testlist.Add("FO5");
             testlist.Add("FO6");
             testlist.Add("FO7");
-            TestComboBox = new cbInstance(new Point(100, 100), testlist);
+            TestComboBox = new cbInstance(new Point(100, 100), testlist, "TestCB");
 
-            TestInputbox = new tibInstance(new Point(300, 100), 150, 20, "INPUT HIER!");
-            Testbutton = new btInstance(new Point(210, 100), 50, 20, "Test", new btInstance.Action(test));
+            TestInputbox = new tibInstance(new Point(300, 100), 150, 20, "INPUT HIER!", "TestTIB");
+            Testbutton = new btInstance(new Point(210, 100), 50, 20, "Test", new btInstance.Action(test), "TESTBT");
+
+            TestSwitchBox = new sbInstance(new Point(100, 300), 50, 20, Tuple.Create("Off", "On"), "TestSB");
 
             // TODO: use this.Content to load your game content here
         }

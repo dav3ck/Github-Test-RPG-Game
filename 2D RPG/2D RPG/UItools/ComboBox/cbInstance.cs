@@ -17,7 +17,7 @@ namespace _2D_RPG.UItools.ComboBox
         public int Number;
         public cbElement Selected;
 
-        public cbInstance(Point location, List<string> cbElements, int Width = 100, int Height = 20, string BeginName = "Null")
+        public cbInstance(Point location, List<string> cbElements, string id, int Width = 100, int Height = 20, string BeginName = "Null")
         {
             if (!cbElements.Any())
             {
@@ -31,7 +31,7 @@ namespace _2D_RPG.UItools.ComboBox
             this.Height = Height;
             this.Text = this.cbElements.First();
             this.Activable = true;
-            this.type = UItypes.Combobox;
+            this.ID = id;
 
             Hitbox = new Rectangle(Location, new Point(Width, Height));
 
@@ -106,6 +106,10 @@ namespace _2D_RPG.UItools.ComboBox
             cbOpen.Open(this);
         }
 
+        public string GetValue()
+        {
+            return this.Text;
+        }
 
     }
 }

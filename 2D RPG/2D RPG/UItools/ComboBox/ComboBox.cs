@@ -16,16 +16,26 @@ namespace _2D_RPG.UItools.ComboBox
             cbList = new List<cbInstance>();
         }
 
-        public static string GetValue(int ID)
+        public static string GetValue(string id = "", cbInstance cb = null)
         {
-            cbInstance combobox = cbList.Find(x => x.ID == ID);
+            if (id != "")
+            {
+                cb = cbList.Find(x => x.ID == id);
 
-            if(combobox == null)
+                if (cb == null)
+                {
+                    return "";
+                }
+            }
+
+            try
+            {
+                return cb.Text;
+            }
+            catch (Exception)
             {
                 return "";
             }
-
-            return combobox.Text;
         }
 
     }

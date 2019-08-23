@@ -12,12 +12,13 @@ namespace _2D_RPG.UItools.Button
         public delegate void Action();
         private Action action;
 
-        public btInstance(Point location, int width, int height, string text, Action x)
+        public btInstance(Point location, int width, int height, string text, Action x, string id)
         {
             this.Location = location;
             this.Width = width;
             this.Height = height;
             this.Text = text;
+            this.ID = id;
             Hitbox = new Rectangle(Location, new Point(Width, Height));
 
             action = x;
