@@ -19,6 +19,8 @@ namespace _2D_RPG.UItools.ComboBox
             combobox.Active = false;
             combobox.Number = 0;
             Clear_cbElements(combobox);
+
+            if(combobox.action != null) { combobox.action(); }
         }
 
         private static void Clear_cbElements(cbInstance combobox)

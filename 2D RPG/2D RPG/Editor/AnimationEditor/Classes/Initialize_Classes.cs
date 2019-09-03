@@ -17,7 +17,7 @@ namespace _2D_RPG.Editor.AnimationEditor
             using (StreamReader r = new StreamReader(Path))
             {
                 string Json = r.ReadToEnd();
-                Classes.all_classes = JsonConvert.DeserializeObject<List<Class_Instance>>(Json);
+                Basecl.all_classes = JsonConvert.DeserializeObject<List<Class_Instance>>(Json);
             }
         }
     }

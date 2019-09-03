@@ -13,7 +13,7 @@ namespace _2D_RPG.UItools.TextInput
         private string Infotext;
         KeyboardState oldkeyboardState;
 
-        public tibInstance(Point location, int width, int height, string text, string id)
+        public tibInstance(Point location, int width, int height, string text, string id, Action x = null)
         {
             this.Location = location;
             this.Width = width;
@@ -22,6 +22,7 @@ namespace _2D_RPG.UItools.TextInput
             this.Infotext = text;
             this.Text = Infotext;
             this.ID = id;
+            this.action = x;
 
             this.Hitbox = new Rectangle(this.Location, new Point(this.Width, this.Height));
         }
@@ -47,6 +48,8 @@ namespace _2D_RPG.UItools.TextInput
             {
                 this.Text = this.Infotext;
             }
+
+            if (action != null) { action(); }
         }
 
         public override void update()

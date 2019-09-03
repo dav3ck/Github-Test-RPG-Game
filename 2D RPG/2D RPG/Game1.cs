@@ -12,6 +12,8 @@ using _2D_RPG.UItools;
 using _2D_RPG.UItools.Button;
 using _2D_RPG.UItools.TextInput;
 using _2D_RPG.UItools.Switch;
+using _2D_RPG.Editor.AnimationEditor.Classes;
+using _2D_RPG.Editor.AnimationEditor.Layer;
 
 namespace _2D_RPG
 {
@@ -22,11 +24,13 @@ namespace _2D_RPG
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        public static SpriteBatch spriteBatch;
+        public static SpriteBatch spriteBatch, backSpriteBatch;
         public static GameContent texture;
         public cbInstance TestComboBox, TestComboBox1;
         public tibInstance TestInputbox;
         public sbInstance TestSwitchBox;
+
+        public static Animation_Editor AnimEditor;
 
         public btInstance Testbutton;
 
@@ -54,7 +58,7 @@ namespace _2D_RPG
 
             Initialize_Spritesheet.Load("Test Spritesheet");
 
-            foreach(var x in Classes.all_classes)
+            foreach(var x in Basecl.all_classes)
             {
                 Console.WriteLine("Name: {0}", x.Name);
             }
@@ -74,8 +78,11 @@ namespace _2D_RPG
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            backSpriteBatch = new SpriteBatch(GraphicsDevice);
             texture = new GameContent(Content);
 
+            AnimEditor = new Animation_Editor();
+            /*
             List<string> testlist = new List<string>();
             testlist.Add("FEE");
             testlist.Add("FAA");
@@ -92,7 +99,9 @@ namespace _2D_RPG
             TestInputbox = new tibInstance(new Point(300, 100), 150, 20, "INPUT HIER!", "TestTIB");
             Testbutton = new btInstance(new Point(210, 100), 50, 20, "Test", new btInstance.Action(test), "TESTBT");
 
-            TestSwitchBox = new sbInstance(new Point(100, 300), 50, 20, Tuple.Create("Off", "On"), "TestSB");
+            TestSwitchBox = new sbInstance(new Point(100, 300), 50, 20, Tuple.Create("Off", "On"), "TestSB"); */
+
+            Class_Handler.Class_Handler_Initialize();
 
             // TODO: use this.Content to load your game content here
         }
@@ -115,25 +124,13 @@ namespace _2D_RPG
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            else if (Keyboard.GetState().IsKeyDown(Keys.W))
-            {
-                TestComboBox.ChangeSelection(false);
-            }
-            else if (Keyboard.GetState().IsKeyDown(Keys.S))
-            {
-                TestComboBox.ChangeSelection(true);
-            }
-            else if (Keyboard.GetState().IsKeyDown(Keys.Q))
-            {
-                cbOpen.Open(TestComboBox);
-            }
-            else if (Keyboard.GetState().IsKeyDown(Keys.F))
-            {
-                cbClose.Close(TestComboBox);
-            }
 
             // TODO: Add your update logic here
             UI_Box.Update();
+            if (Layer_Hitbox.lrHitbox != null)
+            {
+                Layer_Hitbox.lrHitbox.update();
+            }
             base.Update(gameTime);
         }
 
@@ -145,6 +142,9 @@ namespace _2D_RPG
         {
 
             GraphicsDevice.Clear(Color.Black);
+            backSpriteBatch.Begin();
+            AnimEditor.Draw();
+            backSpriteBatch.End();
 
             spriteBatch.Begin();
             spriteBatch.Draw(texture.SpriteSheet_Test, new Rectangle(0,0,40,40), Color.White);
@@ -152,6 +152,8 @@ namespace _2D_RPG
             {
                 ui_box.draw();
             }
+
+            Layer_Handler.draw();
             spriteBatch.End();
 
 

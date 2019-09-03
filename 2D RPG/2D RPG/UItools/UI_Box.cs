@@ -23,9 +23,14 @@ namespace _2D_RPG.UItools
         public string Text;
         public Rectangle Hitbox;
 
+        public delegate void Action();
+        public Action action;
+
         public string ID;
 
         public abstract void Open();
+
+        public static MouseState oldstate;
 
         public UI_Box()
         {
@@ -47,23 +52,24 @@ namespace _2D_RPG.UItools
 
             MouseState state = Mouse.GetState();
 
-            if(state.LeftButton != ButtonState.Pressed)
-            { return; }
-
-
-            Rectangle MouseLocation = new Rectangle(state.Position, new Point(1, 1));
-            var UI = UIboxList.Find(x => x.Hitbox.Intersects(MouseLocation));
-
-            if (UI == null)
+            if (state.LeftButton == ButtonState.Pressed && oldstate.LeftButton != ButtonState.Pressed)
             {
+
+                Rectangle MouseLocation = new Rectangle(state.Position, new Point(1, 1));
+                var UI = UIboxList.Find(x => x.Hitbox.Intersects(MouseLocation));
+
+                if (UI == null)
+                {
+                    UI_ActiveBox.CloseActive();
+                    return;
+                }
+
                 UI_ActiveBox.CloseActive();
-                Console.WriteLine(state.Position);
-                return;
+
+                UI.Open();
             }
 
-            UI_ActiveBox.CloseActive();
-
-            UI.Open();
+            oldstate = state;
         }
 
     }

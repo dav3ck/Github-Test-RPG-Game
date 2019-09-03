@@ -45,10 +45,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Content\GameContent.cs" />
+    <Compile Include="Editor\AnimationEditor\AnimationField.cs" />
     <Compile Include="Editor\AnimationEditor\Animation_Editor.cs" />
-    <Compile Include="Editor\AnimationEditor\Classes.cs" />
-    <Compile Include="Editor\AnimationEditor\Class_Instance.cs" />
-    <Compile Include="Editor\AnimationEditor\Initialize_Classes.cs" />
+    <Compile Include="Editor\AnimationEditor\Classes\Class_Item.cs" />
+    <Compile Include="Editor\AnimationEditor\Classes\Class_Handler.cs" />
+    <Compile Include="Editor\AnimationEditor\Field.cs" />
+    <Compile Include="Editor\AnimationEditor\Classes\Basecl.cs" />
+    <Compile Include="Editor\AnimationEditor\Classes\Class_Instance.cs" />
+    <Compile Include="Editor\AnimationEditor\Classes\Initialize_Classes.cs" />
+    <Compile Include="Editor\AnimationEditor\Layer\Layer_Handler.cs" />
+    <Compile Include="Editor\AnimationEditor\Layer\Layer_Hitbox.cs" />
+    <Compile Include="Editor\AnimationEditor\Layer\Layer_Instance.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Graphics\Graphic_Item.cs" />
     <Compile Include="Graphics\Person_Graphics\Person_Graphic.cs" />
@@ -89,6 +96,7 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
+    <None Include="Editor\AnimationEditor\Classes\Saved_Classes.json" />
     <None Include="Graphics\Spritesheet_Handler\Spritesheet_Config.json" />
     <None Include="Graphics\Spritesheet_Handler\Test_Spritesheet.json" />
     <None Include="packages.config" />

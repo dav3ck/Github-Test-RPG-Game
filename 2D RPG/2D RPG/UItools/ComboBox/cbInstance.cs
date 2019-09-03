@@ -16,9 +16,12 @@ namespace _2D_RPG.UItools.ComboBox
         public bool canScroll;
         public int Number;
         public cbElement Selected;
+        private KeyboardState oldKeyboardState;
+        private MouseState oldMouseState;
 
-        public cbInstance(Point location, List<string> cbElements, string id, int Width = 100, int Height = 20, string BeginName = "Null")
+        public cbInstance(Point location, List<string> cbElements, string id, int Width = 100, int Height = 20, Action x = null)
         {
+
             if (!cbElements.Any())
             {
                 Console.WriteLine("Cancel creation of ComboBox Because Element List is Empty");
@@ -32,6 +35,7 @@ namespace _2D_RPG.UItools.ComboBox
             this.Text = this.cbElements.First();
             this.Activable = true;
             this.ID = id;
+            this.action = x;
 
             Hitbox = new Rectangle(Location, new Point(Width, Height));
 
@@ -66,6 +70,7 @@ namespace _2D_RPG.UItools.ComboBox
                 }
             }
             Selected = Loaded_cbElements[Number];
+            this.Text = Selected.Text;
 
 
             foreach (var y in Loaded_cbElements)
@@ -82,6 +87,7 @@ namespace _2D_RPG.UItools.ComboBox
             Console.WriteLine();
         }
 
+
         private void Scroll(int x)
         {
             foreach(cbElement cbElem in Loaded_cbElements)
@@ -91,10 +97,60 @@ namespace _2D_RPG.UItools.ComboBox
             } 
         }
 
+
         public override void update()
         {
-            //CHECK HERE FOR INPUT
+            KeyBoardControl();
+            MouseControl(); 
         }
+
+        private void MouseControl()
+        {
+            MouseState currentMouseState = Mouse.GetState();
+
+            if (currentMouseState == oldMouseState)
+            {
+                return;
+            }
+
+            if(currentMouseState.ScrollWheelValue > oldMouseState.ScrollWheelValue)
+            {
+                ChangeSelection(false);
+            }
+            else if (currentMouseState.ScrollWheelValue < oldMouseState.ScrollWheelValue)
+            {
+                ChangeSelection(true);
+            }
+
+            oldMouseState = currentMouseState;
+        }
+
+        private void KeyBoardControl()
+        {
+            KeyboardState currentKeyboardState = Keyboard.GetState();
+
+            if (currentKeyboardState == oldKeyboardState)
+            {
+                return;
+            }
+
+            if (currentKeyboardState.IsKeyDown(Keys.W))
+            {
+                ChangeSelection(false);
+            }
+            else if (currentKeyboardState.IsKeyDown(Keys.S))
+            {
+                ChangeSelection(true);
+            }
+            else if (currentKeyboardState.IsKeyDown(Keys.Enter))
+            {
+                Close();
+            }
+
+            oldKeyboardState = currentKeyboardState;
+        }
+
+
 
         public override void Close()
         {
@@ -106,9 +162,19 @@ namespace _2D_RPG.UItools.ComboBox
             cbOpen.Open(this);
         }
 
+
+
         public string GetValue()
         {
             return this.Text;
+        }
+
+        public void ChangeOptions(List<string> options)
+        {
+            this.cbElements = options;
+            this.Text = this.cbElements.First();
+
+            this.Selected = null;
         }
 
     }

@@ -7,21 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
+using _2D_RPG.UItools.ComboBox;
+using _2D_RPG.UItools;
+using _2D_RPG.UItools.Button;
+using _2D_RPG.UItools.TextInput;
+using _2D_RPG.UItools.Switch;
 
 
 namespace _2D_RPG.Editor.AnimationEditor
 {
-    class Animation_Editor
+    public class Animation_Editor
     {
+        public static AnimationField animationField = new AnimationField("animationField", new Point(500,400), new Point(250, 50));
 
         public Animation_Editor()
         {
+            Initialize();
         }
 
-        public void Initialize()
+        private void Initialize()
         {
-
         }
 
         public void Update()
@@ -31,7 +36,7 @@ namespace _2D_RPG.Editor.AnimationEditor
 
         public void Draw()
         {
-
+            animationField.Draw();
         }
     }
 }

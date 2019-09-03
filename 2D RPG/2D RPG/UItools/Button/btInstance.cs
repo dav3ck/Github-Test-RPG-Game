@@ -9,8 +9,6 @@ namespace _2D_RPG.UItools.Button
 {
     public class btInstance : UI_Box
     {
-        public delegate void Action();
-        private Action action;
 
         public btInstance(Point location, int width, int height, string text, Action x, string id)
         {
