@@ -14,6 +14,7 @@ namespace _2D_RPG.UItools
     abstract public class UI_Box
     {
         public static List<UI_Box> UIboxList = new List<UI_Box>();
+        public static List<UI_Box> drawUIboxList = new List<UI_Box>();
 
         public bool Activable;
         public bool Active;
@@ -34,17 +35,27 @@ namespace _2D_RPG.UItools
 
         public UI_Box()
         {
-            UIboxList.Add(this);
+            drawUIboxList.Add(this);
         }
 
         public void draw()
         {
-            Game1.spriteBatch.Draw(Game1.texture.TestTile1, new Rectangle(Location.X, Location.Y, Width, Height), Color.White);
-            Game1.spriteBatch.DrawString(Game1.texture.Arial20, Text, new Vector2(Location.X, Location.Y), Color.White);
+            foreach (var z in UI_AlwaysActiveBox.AlwaysActiveUIBoxes)
+            {
+                z.Draw();
+            }
+
+            //Game1.spriteBatch.Draw(Game1.texture.TestTile1, new Rectangle(Location.X, Location.Y, Width, Height), Color.White);
+            //Game1.spriteBatch.DrawString(Game1.texture.Arial20, Text, new Vector2(Location.X, Location.Y), Color.White);
         }
 
         public static void Update()
         {
+            foreach(var z in UI_AlwaysActiveBox.AlwaysActiveUIBoxes)
+            {
+                z.update();
+            }
+
             foreach (var x in UI_ActiveBox.ActiveUIBoxes)
             {
                 x.update();

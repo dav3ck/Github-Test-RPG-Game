@@ -7,12 +7,12 @@ using Microsoft.Xna.Framework;
 
 namespace _2D_RPG.UItools.Switch
 {
-    public class sbInstance : UI_Box
+    public class switchInstance : UI_Box
     {
         public Tuple<string, string> TextStates;
         public bool State;
 
-        public sbInstance(Point location, int width, int height, Tuple<string,string> textState, string id, bool state = false, Action x = null)
+        public switchInstance(Point location, int width, int height, Tuple<string,string> textState, string id, bool state = false, Action x = null)
         {
             this.Location = location;
             this.Width = width;
@@ -23,7 +23,9 @@ namespace _2D_RPG.UItools.Switch
             this.Hitbox = new Rectangle(Location, new Point(Width, Height));
             this.action = x;
 
-            this.Text = this.State ? TextStates.Item2 : TextStates.Item1;     
+            this.Text = this.State ? TextStates.Item2 : TextStates.Item1;
+
+            UIboxList.Add(this);
         }
 
         public override void Open()

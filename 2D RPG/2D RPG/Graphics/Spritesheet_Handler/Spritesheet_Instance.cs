@@ -16,8 +16,8 @@ namespace _2D_RPG
         public string name { get; set; }
         public string discription { get; set; }
 
-        private Texture2D image { get; set; }
-        private Tuple<int, int> dimensions { get; set; }
+        public Texture2D image { get; set; }
+        public Tuple<int, int> dimensions { get; set; }
 
         public string[,,] imageInformation { get; set; }
 

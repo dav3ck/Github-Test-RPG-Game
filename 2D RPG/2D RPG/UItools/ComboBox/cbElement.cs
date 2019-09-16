@@ -24,6 +24,7 @@ namespace _2D_RPG.UItools.ComboBox
             this.Activable = false;
             Hitbox = new Rectangle(Location, new Point(Width, Height));
 
+            UIboxList.Add(this);
         }
 
         public override void Open()

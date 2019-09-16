@@ -42,6 +42,8 @@ namespace _2D_RPG.UItools.ComboBox
             ComboBox.cbList.Add(this);
 
             Console.WriteLine("Succesfully created ComboBox!");
+
+            UIboxList.Add(this);
         }
 
         public void ChangeSelection(bool DirectionDown)

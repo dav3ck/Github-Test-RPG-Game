@@ -71,8 +71,12 @@
     <Compile Include="UItools\ComboBox\cbOpen.cs" />
     <Compile Include="UItools\ComboBox\ComboBox.cs" />
     <Compile Include="UItools\ComboBox\cbInstance.cs" />
+    <Compile Include="UItools\SpritesheetBox\sbDisElement.cs" />
+    <Compile Include="UItools\SpritesheetBox\sbElement.cs" />
+    <Compile Include="UItools\SpritesheetBox\sbInstance.cs" />
     <Compile Include="UItools\Switch\sbInstance.cs" />
     <Compile Include="UItools\TextInput\tibInstance.cs" />
+    <Compile Include="UItools\UI_AlwaysActiveBox.cs" />
     <Compile Include="UItools\UI_Box.cs" />
     <Compile Include="UItools\UI_ActiveBox.cs" />
   </ItemGroup>
@@ -98,6 +102,7 @@
     <None Include="app.manifest" />
     <None Include="Editor\AnimationEditor\Classes\Saved_Classes.json" />
     <None Include="Graphics\Spritesheet_Handler\Spritesheet_Config.json" />
+    <None Include="Graphics\Spritesheet_Handler\Test2_Spritesheet.json" />
     <None Include="Graphics\Spritesheet_Handler\Test_Spritesheet.json" />
     <None Include="packages.config" />
   </ItemGroup>

@@ -20,6 +20,8 @@ namespace _2D_RPG.UItools.Button
             Hitbox = new Rectangle(Location, new Point(Width, Height));
 
             action = x;
+
+            UIboxList.Add(this);
         }
 
         public override void Open()

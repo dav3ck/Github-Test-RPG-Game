@@ -25,6 +25,8 @@ namespace _2D_RPG.UItools.TextInput
             this.action = x;
 
             this.Hitbox = new Rectangle(this.Location, new Point(this.Width, this.Height));
+
+            UIboxList.Add(this);
         }
 
         public override void Open()

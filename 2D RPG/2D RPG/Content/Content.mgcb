@@ -20,6 +20,18 @@
 /processorParam:TextureFormat=Compressed
 /build:Arial20.spritefont
 
+#begin Bad_Player_Walk.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Bad_Player_Walk.png
+
 #begin Test_Spritesheet_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
