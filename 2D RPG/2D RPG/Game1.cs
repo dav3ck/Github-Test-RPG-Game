@@ -65,9 +65,6 @@ namespace _2D_RPG
             }
 
             this.IsMouseVisible = true;
-
-            Spritesheet_Instance sh = Initialize_Spritesheet.AssignSpritesheet("TestSpriteSheet");
-            TestSwitchBox = new sbInstance(new Point(100, 300), sh, "Test", new Point(100, 100));
         }
 
         /// <summary>
@@ -85,7 +82,8 @@ namespace _2D_RPG
             backSpriteBatch = new SpriteBatch(GraphicsDevice);
             texture = new GameContent(Content);
 
-            //AnimEditor = new Animation_Editor();
+            AnimEditor = new Animation_Editor();
+
             /*
             List<string> testlist = new List<string>();
             testlist.Add("FEE");
@@ -103,7 +101,9 @@ namespace _2D_RPG
             TestInputbox = new tibInstance(new Point(300, 100), 150, 20, "INPUT HIER!", "TestTIB");
             Testbutton = new btInstance(new Point(210, 100), 50, 20, "Test", new btInstance.Action(test), "TESTBT"); */
 
-            //Class_Handler.Class_Handler_Initialize();
+            Class_Handler.Class_Handler_Initialize();
+
+            //TestSwitchBox = new sbInstance(new Point(50, 350), Initialize_Spritesheet.AssignSpritesheet("Test Spritesheet 2"), "Test", new Point(200, 100));
 
             // TODO: use this.Content to load your game content here
         }
@@ -150,7 +150,7 @@ namespace _2D_RPG
 
             spriteBatch.Begin();
             spriteBatch.Draw(texture.SpriteSheet_Test, new Rectangle(0,0,40,40), Color.White);
-            foreach(UI_Box ui_box in UI_Box.drawUIboxList)
+            foreach(UI_Box ui_box in UI_Box.UIboxList)
             {
                 ui_box.draw();
             }

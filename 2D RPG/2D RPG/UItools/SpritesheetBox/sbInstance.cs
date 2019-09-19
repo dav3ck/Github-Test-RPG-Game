@@ -22,13 +22,9 @@ namespace _2D_RPG.UItools.SpritesheetBox
         private int offset;
         private Texture2D img;
 
-        //private List<sbElement> sbElements = new List<sbElement>();
-        private static int numRows = 3;
         private int DemSize;
 
         public Point Selected;
-
-        //private List<sbDisElement> sbActivElem = new List<sbDisElement>();
 
         public sbInstance(Point location, Spritesheet_Instance sh, string id, Point Size, Point shcords = new Point(), Action x = null)
         {
@@ -42,22 +38,17 @@ namespace _2D_RPG.UItools.SpritesheetBox
             this.shCords = shcords;
             this.Size = Size;
 
-            this.imgSize = new Point(Size.X, shInstance.dimensions.Item2 * (Size.X / shInstance.dimensions.Item1));
+            this.img = sh.image;
+            this.imgSize = new Point(Size.X, (Size.X / sh.dimensions.Item1) * sh.dimensions.Item2);
 
-            /*for(int y = 1; y <= shInstance.dimensions.Item2; y++)
-            {
-                for (int a = 1; a <= shInstance.dimensions.Item1; a++)
-                {
-                    sbElements.Add(new sbElement(a, y, shInstance));
-                }
-            } */
+            Console.WriteLine("Spritesheet Name: {0}", sh.name);
 
             DemSize = Size.X / shInstance.dimensions.Item1;
 
             Hitbox = new Rectangle(Location, new Point(Width, Height));
             UIboxList.Add(this);
+            this.action = x;
         }
-
 
         public override void Open()
         {
@@ -70,6 +61,7 @@ namespace _2D_RPG.UItools.SpritesheetBox
             Selected = new Point(location.X / DemSize, location.Y / DemSize);
 
             Console.WriteLine("Dimensions of Selected X: {0} - Y: {1}", Selected.X, Selected.Y);
+            action();
         }
 
         public override void update()
@@ -104,7 +96,7 @@ namespace _2D_RPG.UItools.SpritesheetBox
                 offset -= 5;
             }
 
-            if (offset + Size.Y >= imgSize.Y)
+            if (offset + Size.Y > imgSize.Y)
             {
                 offset = imgSize.Y - Size.Y;
             }
@@ -115,10 +107,22 @@ namespace _2D_RPG.UItools.SpritesheetBox
             }
         }
 
-        public override void Draw()
+        public override void draw()
         {
-            Rectangle Source = new Rectangle(offset, 0, Size.X, Size.Y);
-            Game1.spriteBatch.Draw(Game1.texture.TestTile1, new Rectangle(Location.X, Location.Y, Width, Height), Source, Color.White);
+            //Console.WriteLine("Img Width: {0} -- imgHeight: {1}", imgSize.X, (imgSize.X * Height) / Width);
+
+            Rectangle Source = new Rectangle(0, (img.Width * offset) / Width, img.Width, (img.Width * Height) / Width);
+            Game1.spriteBatch.Draw(Game1.texture.TestTile1, new Rectangle(Location.X, Location.Y, Width, Height), Color.White);
+            Game1.spriteBatch.Draw(img, new Rectangle(Location.X, Location.Y, Width, Height), Source, Color.White);
+        }
+
+        public void SwitchSpriteSheet(Spritesheet_Instance sh, Point Select = new Point())
+        {
+            this.shInstance = sh;
+            this.img = sh.image;
+            this.imgSize = new Point(Size.X, (Size.X / sh.dimensions.Item1) * sh.dimensions.Item2);
+            offset = 0;
+            this.DemSize = Size.X / shInstance.dimensions.Item1;
         }
     }
 }

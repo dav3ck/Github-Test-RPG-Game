@@ -1,19 +1,37 @@
 [
   {
-    "Name": "Test1",
-    "Discription": "This is a test Item",
+    "Name": "Person Test",
+    "Discription": "This is a test Item for a Person",
     "class_items": [
       {
-        "Name": "Test1_Item1",
-        "Discription": "Test1 Item1",
+        "Name": "Head",
+        "Discription": "H Test",
         "ID": 0,
-        "spritesheet": "Test Spritesheet"
+        "spritesheet": "H Test"
       },
       {
-        "Name": "Test1_Item2",
-        "Discription": "Test1 Item2",
+        "Name": "FrontLeg",
+        "Discription": "TFL Test",
         "ID": 1,
-        "spritesheet": "Test Spritesheet"
+        "spritesheet": "FL Test"
+      },
+      {
+        "Name": "Body",
+        "Discription": "Body Test",
+        "ID": 2,
+        "spritesheet": "B Test"
+      },
+      {
+        "Name": "BackArm",
+        "Discription": "BA Test",
+        "ID": 3,
+        "spritesheet": "BA Test"
+      },
+      {
+        "Name": "BackLeg",
+        "Discription": "BL Test",
+        "ID": 4,
+        "spritesheet": "BL Test"
       }
     ]
   },
@@ -25,7 +43,7 @@
         "Name": "Test2_Item1",
         "Discription": "Test2 Item1",
         "ID": 0,
-        "spritesheet": "Test Spritesheet"
+        "spritesheet": "Test Spritesheet 2"
       },
       {
         "Name": "Test2_Item2",

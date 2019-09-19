@@ -1,0 +1,19 @@
+
+  {
+    "name": "BL Test",
+    "discription": "A Spritesheet used for testing",
+    "image": "BL_Test",
+
+    "DimX": 4,
+    "DimY": 1,
+
+    "imageInformation": [
+      [
+        [
+          "Test#1",
+          "A Test Arm Used for testing"
+        ]
+      ]
+    ]
+  }
+

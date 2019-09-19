@@ -1,10 +1,30 @@
 [
   {
     "name": "Test Spritesheet",
-    "path": "D:/Game/2D RPG/2D RPG/Graphics/Spritesheet_Handler/Test_Spritesheet.json"
+    "path": "D:/Game/Github-Test-RPG-Game/2D RPG/2D RPG/Graphics/Spritesheet_Handler/Test_Spritesheet.json"
   },
   {
     "name": "Test Spritesheet 2",
-    "path": "D:/Game/2D RPG/2D RPG/Graphics/Spritesheet_Handler/Test2_Spritesheet.json"
+    "path": "D:/Game/Github-Test-RPG-Game/2D RPG/2D RPG/Graphics/Spritesheet_Handler/Test2_Spritesheet.json"
+  },
+  {
+    "name": "BA Test",
+    "path": "D:/Game/Github-Test-RPG-Game/2D RPG/2D RPG/Graphics/Spritesheet_Handler/BA.json"
+  },
+  {
+    "name": "BL Test",
+    "path": "D:/Game/Github-Test-RPG-Game/2D RPG/2D RPG/Graphics/Spritesheet_Handler/BL.json"
+  },
+  {
+    "name": "FL Test",
+    "path": "D:/Game/Github-Test-RPG-Game/2D RPG/2D RPG/Graphics/Spritesheet_Handler/FL.json"
+  },
+  {
+    "name": "H Test",
+    "path": "D:/Game/Github-Test-RPG-Game/2D RPG/2D RPG/Graphics/Spritesheet_Handler/H.json"
+  },
+  {
+    "name": "B Test",
+    "path": "D:/Game/Github-Test-RPG-Game/2D RPG/2D RPG/Graphics/Spritesheet_Handler/B.json"
   }
 ]

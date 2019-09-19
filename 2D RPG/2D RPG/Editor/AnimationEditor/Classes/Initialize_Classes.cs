@@ -12,7 +12,7 @@ namespace _2D_RPG.Editor.AnimationEditor
     {
         public static void Load_Classes()
         {
-            string Path = "D:/Game/2D RPG/2D RPG/Editor/AnimationEditor/Saved_Classes.json";
+            string Path = "D:/Game/Github-Test-RPG-Game/2D RPG/2D RPG/Editor/AnimationEditor/Classes/Saved_Classes.json";
 
             using (StreamReader r = new StreamReader(Path))
             {

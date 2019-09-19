@@ -1,0 +1,19 @@
+
+  {
+    "name": "H Test",
+    "discription": "A Spritesheet used for testing",
+    "image": "H_Test",
+
+    "DimX": 4,
+    "DimY": 1,
+
+    "imageInformation": [
+      [
+        [
+          "Test#1",
+          "A Test Arm Used for testing"
+        ]
+      ]
+    ]
+  }
+

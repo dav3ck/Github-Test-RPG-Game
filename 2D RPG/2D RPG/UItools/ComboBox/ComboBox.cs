@@ -9,7 +9,7 @@ namespace _2D_RPG.UItools.ComboBox
     public static class ComboBox
     {
         public static List<cbInstance> cbList = new List<cbInstance>();
-        public static int cbMaxSize = 4;
+        public static int cbMaxSize = 5;
 
         public static void ClearAll()
         {

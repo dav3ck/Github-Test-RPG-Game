@@ -22,9 +22,10 @@ namespace _2D_RPG
 
         private static void LoadJson()
         {
-            using (StreamReader r = new StreamReader("D:/Game/2D RPG/2D RPG/Graphics/Spritesheet_Handler/Spritesheet_Config.json"))
+            using (StreamReader r = new StreamReader("D:/Game/Github-Test-RPG-Game/2D RPG/2D RPG/Graphics/Spritesheet_Handler/Spritesheet_Config.json"))
             {
                 string json = r.ReadToEnd();
+                Console.WriteLine(json);
                 Spritesheet_Data_File = JsonConvert.DeserializeObject<List<SpritesheetFiles>>(json);
             }
         }

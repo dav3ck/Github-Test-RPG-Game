@@ -101,9 +101,14 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
     <None Include="Editor\AnimationEditor\Classes\Saved_Classes.json" />
+    <None Include="Graphics\Spritesheet_Handler\B.json" />
+    <None Include="Graphics\Spritesheet_Handler\BL.json" />
+    <None Include="Graphics\Spritesheet_Handler\FL.json" />
+    <None Include="Graphics\Spritesheet_Handler\H.json" />
     <None Include="Graphics\Spritesheet_Handler\Spritesheet_Config.json" />
     <None Include="Graphics\Spritesheet_Handler\Test2_Spritesheet.json" />
     <None Include="Graphics\Spritesheet_Handler\Test_Spritesheet.json" />
+    <None Include="Graphics\Spritesheet_Handler\BA.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

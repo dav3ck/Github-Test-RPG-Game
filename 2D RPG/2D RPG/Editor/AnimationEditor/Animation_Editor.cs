@@ -14,11 +14,12 @@ using _2D_RPG.UItools.TextInput;
 using _2D_RPG.UItools.Switch;
 
 
+
 namespace _2D_RPG.Editor.AnimationEditor
 {
     public class Animation_Editor
     {
-        public static AnimationField animationField = new AnimationField("animationField", new Point(500,400), new Point(250, 50));
+        public static AnimationField animationField = new AnimationField("animationField", new Point(200,200), new Point(300, 50));
 
         public Animation_Editor()
         {
@@ -27,6 +28,7 @@ namespace _2D_RPG.Editor.AnimationEditor
 
         private void Initialize()
         {
+            
         }
 
         public void Update()

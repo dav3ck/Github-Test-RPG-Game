@@ -21,12 +21,12 @@ namespace _2D_RPG
 
         public string[,,] imageInformation { get; set; }
 
-        public Spritesheet_Instance(string name, string discription, string image, Tuple<int,int> dimensions, string[,,] imageInformation)
+        public Spritesheet_Instance(string name, string discription, string image, string[,,] imageInformation, int DimX, int DimY)
         {
             this.name = name;
             this.discription = discription;
             this.image = (Texture2D)Game1.texture.GetType().GetProperty(image).GetValue(Game1.texture);
-            this.dimensions = dimensions;
+            this.dimensions = Tuple.Create(DimX, DimY);
             this.imageInformation = imageInformation;
 
             Initialize_Spritesheet.loaded_Spritesheets.Add(this);

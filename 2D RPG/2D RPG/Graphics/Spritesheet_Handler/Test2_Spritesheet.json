@@ -3,10 +3,8 @@
   "discription": "A Spritesheet used for testing 2",
   "image": "TestSpriteSheet",
 
-  "dimensions": {
-    "X": 4,
-    "Y": 4
-  },
+  "DimX": 4,
+  "DimY": 4,
 
   "imageInformation": [
     [

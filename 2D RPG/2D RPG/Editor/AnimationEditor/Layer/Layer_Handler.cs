@@ -27,6 +27,8 @@ namespace _2D_RPG.Editor.AnimationEditor.Layer
 
             SelectedLayer = ActiveLayers.First();
 
+            Class_Handler.SpriteSheetBox.SwitchSpriteSheet(SelectedLayer.clItem.Spritesheet);
+
             lrHitbox = new Layer_Hitbox();
         }
 
@@ -34,7 +36,10 @@ namespace _2D_RPG.Editor.AnimationEditor.Layer
         {
             foreach(var x in ActiveLayers)
             {
-                Game1.spriteBatch.Draw(Game1.texture.SpriteSheet_Test, new Rectangle(x.Location.ToPoint(), new Point(40,40)), Color.White);
+                int FrameWidth = x.clItem.Spritesheet.image.Width / x.clItem.Spritesheet.dimensions.Item1;
+                int FrameHeight = x.clItem.Spritesheet.image.Height / x.clItem.Spritesheet.dimensions.Item2;
+                Rectangle Source = new Rectangle(FrameWidth * x.Spritecords.X, FrameHeight * x.Spritecords.Y, FrameWidth, FrameHeight);
+                Game1.spriteBatch.Draw(x.clItem.Spritesheet.image, new Rectangle(x.Location.ToPoint(), new Point(40,40)),Source, Color.White);
             }
         }
 
@@ -42,7 +47,14 @@ namespace _2D_RPG.Editor.AnimationEditor.Layer
         {
             SelectedLayer = ActiveLayers.Find(x => x.clItem.Name == Class_Handler.ClassItemcb.Selected.Text);
 
+            Class_Handler.SpriteSheetBox.SwitchSpriteSheet(SelectedLayer.clItem.Spritesheet);
+
             lrHitbox = new Layer_Hitbox();
+        }
+
+        public static void SwitchLayerImg()
+        {
+            SelectedLayer.Spritecords = Class_Handler.SpriteSheetBox.Selected;
         }
     }
 }

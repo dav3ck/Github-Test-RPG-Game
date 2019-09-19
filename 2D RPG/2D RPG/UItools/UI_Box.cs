@@ -35,18 +35,13 @@ namespace _2D_RPG.UItools
 
         public UI_Box()
         {
-            drawUIboxList.Add(this);
+            UIboxList.Add(this);
         }
 
-        public void draw()
+        public virtual void draw()
         {
-            foreach (var z in UI_AlwaysActiveBox.AlwaysActiveUIBoxes)
-            {
-                z.Draw();
-            }
-
-            //Game1.spriteBatch.Draw(Game1.texture.TestTile1, new Rectangle(Location.X, Location.Y, Width, Height), Color.White);
-            //Game1.spriteBatch.DrawString(Game1.texture.Arial20, Text, new Vector2(Location.X, Location.Y), Color.White);
+            Game1.spriteBatch.Draw(Game1.texture.TestTile1, new Rectangle(Location.X, Location.Y, Width, Height), Color.White);
+            Game1.spriteBatch.DrawString(Game1.texture.Arial20, Text, new Vector2(Location.X, Location.Y), Color.White);
         }
 
         public static void Update()
